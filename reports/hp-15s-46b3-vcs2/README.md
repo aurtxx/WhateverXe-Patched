@@ -1,35 +1,28 @@
-# WhateverXe Hardware Diagnostic Report — Alder Lake-U `8086:46B3` (rev `0C`) with VCS2-Only (`video = 4`)
+# HP 15s-fr5009TU (`8086:46B3` rev `0C`, VCS2-Only) — Diagnostic Evidence Bundle
 
-Clean, privacy-sanitized **macOS (`WhateverXe 0.8.3` + `WhateverXe Graphics 0.4.4`)** and **Linux (`i915`)** hardware evidence for an **HP 15s-fr5009TU** laptop with an **Intel Core i3-1215U** (`8086:46B3` rev `0x0C`, subsystem `103C:8A20`).
+This directory contains the complete, privacy-sanitized raw outputs referenced in:
+- Upstream issue: [`b00t0x/WhateverXe#169`](https://github.com/b00t0x/WhateverXe/issues/169)
+- Fork issue: [`belugaa-01/WhateverXe-Patched#7`](https://github.com/belugaa-01/WhateverXe-Patched/issues/7)
+- Repository overview & docs: [`../../README.md`](../../README.md)
 
-## Executive Summary
+## Quick File Index
 
-- **Display & Backlight WORK on official `WhateverXe 0.8.3` + `WhateverXe Graphics 0.4.4`:**
-  - `WEXDisplay13BootReady = Yes`
-  - `N97FramebufferStartAccepted = Yes` (`1920x1080` internal 6-bpc eDP, `1536 MB`)
-  - `PNLF _UID = 19`, `WhateverXeBacklightProfile = "F19T07d0"`, **panel brightness control works**.
-- **Only remaining blocker for Metal / Native Accelerator:**
-  - `N97GTTopologyReady = No` → `N97NativePreflight = No` → `N97NativeStartAllowed = No`.
-  - Hardware fuse readout (`N97GTReadout`): `[0x1, 0x0F, 0x00, 0x44, 0x000E00FB]`
-    - 1 slice, 4 DSS (8 native subslices), **64 EUs**, **6 L3 banks (384 KiB URB)**, `enhance = 1` (`VECS0`)
-    - **`video = (~0x000E00FB) & 0xFF = 0x04` (VCS2-only — physical VCS0 is fused off on this die)**
-  - `decodeADLPGT()` in `WhateverXe 0.8.3` (`WhateverXe/kern_xelp_gt_resources.hpp`) currently only accepts `video == 1 || video == 5`.
-- **Cross-confirmed by Linux `i915` (`linux_i915_evidence/i915_engine_info.txt`):**
-  - `rcs0` @ `0x00002000`
-  - `bcs0` @ `0x00022000`
-  - `vcs0` *(logical)* → **MMIO base `0x001D0000`** *(physical VCS2! Physical VCS0 `0x001C0000` does not exist)*
-  - `vecs0` @ `0x001C8000`
-  - SSEU: 1 slice (`0001`), 4 subslices, 16 EU/subslice, **64 EUs total**, Display `13.00` stepping `D0`.
+### 1. macOS `WhateverXe 0.8.3` + `WhateverXe Graphics 0.4.4` ([`macos_wex_0.8.3_report/`](./macos_wex_0.8.3_report/))
+- [`check_wex_setup_output.txt`](./macos_wex_0.8.3_report/check_wex_setup_output.txt) — `13 OK`, `4 FAIL` (all 4 from `N97GTTopologyReady = No`)
+- [`gt_readout.txt`](./macos_wex_0.8.3_report/gt_readout.txt) — Raw `N97GTReadout` hex proving `fuses[4] = 0x000E00FB` (`video = 4`)
+- [`igpu_flags.txt`](./macos_wex_0.8.3_report/igpu_flags.txt) — Full `IGPU` registry gate properties
+- [`plugin_records.txt`](./macos_wex_0.8.3_report/plugin_records.txt) — `N97FBBootHandoffCheck`, `N97FBMailbox`, `N97NativeBootSource`
+- [`pnlf.txt`](./macos_wex_0.8.3_report/pnlf.txt) — `PNLF _UID = 19` + `AppleIntelPanelA` (`F19T07d0`, brightness working)
+- [`kexts.txt`](./macos_wex_0.8.3_report/kexts.txt) — Loaded `Lilu`, `AMFIPass`, `WhateverXe 0.8.3`, `TGLCompat 0.8.1`, `TGLGraphics*`
+- [`displays.txt`](./macos_wex_0.8.3_report/displays.txt) — `system_profiler SPDisplaysDataType` (`1920x1080`, `1536 MB`, `Internal`)
+- [`gpu_errors.txt`](./macos_wex_0.8.3_report/gpu_errors.txt) · [`os.txt`](./macos_wex_0.8.3_report/os.txt) · [`boot_args.txt`](./macos_wex_0.8.3_report/boot_args.txt) · [`packages.txt`](./macos_wex_0.8.3_report/packages.txt)
 
-## Repository Contents
+### 2. Native Linux `i915` Evidence ([`linux_i915_evidence/`](./linux_i915_evidence/))
+- [`i915_engine_info.txt`](./linux_i915_evidence/i915_engine_info.txt) — Proves `rcs0 = 0x2000`, `bcs0 = 0x22000`, logical `vcs0` → **`0x001D0000` (physical VCS2)**, `vecs0 = 0x1C8000`
+- [`i915_sseu_status.txt`](./linux_i915_evidence/i915_sseu_status.txt) — Proves `1` slice, `4` subslices, `64` EUs (`16` EU/subslice)
+- [`i915_dmesg.txt`](./linux_i915_evidence/i915_dmesg.txt) — `alderlake_p (46b3)`, Display `13.00` stepping `D0`
+- [`lspci_00_02_0.txt`](./linux_i915_evidence/lspci_00_02_0.txt) · [`pci_sysfs.txt`](./linux_i915_evidence/pci_sysfs.txt) · [`drm_devices.txt`](./linux_i915_evidence/drm_devices.txt)
 
-| Folder / File | Contents |
-|---|---|
-| [`GITHUB_ISSUE_BODY.md`](./GITHUB_ISSUE_BODY.md) | Ready-to-file issue summary for `b00t0x/WhateverXe` |
-| [`macos_wex_0.8.3_report/`](./macos_wex_0.8.3_report/) | Clean official `WhateverXe 0.8.3` + `Graphics 0.4.4` boot outputs (`gt_readout.txt`, `igpu_flags.txt`, `plugin_records.txt`, `pnlf.txt`, `kexts.txt`, `displays.txt`, `check_wex_setup_output.txt`) |
-| [`linux_i915_evidence/`](./linux_i915_evidence/) | Native Linux `i915` debugfs & PCI dumps (`i915_engine_info.txt`, `i915_sseu_status.txt`, `i915_dmesg.txt`, `lspci_00_02_0.txt`, `pci_sysfs.txt`, `drm_devices.txt`) |
-| [`opencore_config_sanitized/`](./opencore_config_sanitized/) | Privacy-sanitized OpenCore 1.0.9 config summary + decompiled `SSDT-PNLF.dsl` |
-| [`wex_0.8.3_46b3_vcs2_report.zip`](./wex_0.8.3_46b3_vcs2_report.zip) | Sanitized ZIP bundle of `macos_wex_0.8.3_report/` |
-
-## Privacy Notice
-No SMBIOS serial numbers, MLB, ROM, SystemUUID, MAC addresses, or personal identifiers are included in this repository.
+### 3. Sanitized OpenCore Configuration ([`opencore_config_sanitized/`](./opencore_config_sanitized/))
+- [`config_summary.md`](./opencore_config_sanitized/config_summary.md) — Privacy-sanitized OpenCore `1.0.9` config summary
+- [`SSDT-PNLF.dsl`](./opencore_config_sanitized/SSDT-PNLF.dsl) — Decompiled `\_SB.PC00.GFX0` backlight SSDT (`_UID = 19`)
