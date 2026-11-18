@@ -1,0 +1,24 @@
+[    0.881632] ACPI: bus type drm_connector registered
+[    0.890100] simple-framebuffer simple-framebuffer.0: [drm] Registered 1 planes with drm panic
+[    0.890102] [drm] Initialized simpledrm 1.0.0 for simple-framebuffer.0 on minor 0
+[    0.891535] simple-framebuffer simple-framebuffer.0: [drm] fb0: simpledrmdrmfb frame buffer device
+[    5.976658] i915 0000:00:02.0: [drm] Found alderlake_p (device ID 46b3) integrated display version 13.00 stepping D0
+[    6.024511] i915 0000:00:02.0: vgaarb: deactivate vga console
+[    6.024695] i915 0000:00:02.0: [drm] Using Transparent Hugepages
+[    6.026276] i915 0000:00:02.0: vgaarb: VGA decodes changed: olddecodes=io+mem,decodes=io+mem:owns=io+mem
+[    6.030775] i915 0000:00:02.0: [drm] Finished loading DMC firmware i915/adlp_dmc.bin (v2.20)
+[    6.042479] i915 0000:00:02.0: [drm] GT0: GuC firmware i915/adlp_guc_70.bin version 70.49.4
+[    6.042484] i915 0000:00:02.0: [drm] GT0: HuC firmware i915/tgl_huc.bin version 7.9.3
+[    6.057958] i915 0000:00:02.0: [drm] GT0: HuC: authenticated for all workloads
+[    6.058754] i915 0000:00:02.0: [drm] GT0: GUC: submission enabled
+[    6.058756] i915 0000:00:02.0: [drm] GT0: GUC: SLPC enabled
+[    6.059223] i915 0000:00:02.0: [drm] GT0: GUC: RC enabled
+[    6.060328] i915 0000:00:02.0: [drm] Protected Xe Path (PXP) protected content support initialized
+[    6.062472] i915 0000:00:02.0: [drm] Registered 4 planes with drm panic
+[    6.062475] [drm] Initialized i915 1.6.0 for 0000:00:02.0 on minor 1
+[    6.070546] fbcon: i915drmfb (fb0) is primary device
+[    6.114459] i915 0000:00:02.0: [drm] fb0: i915drmfb frame buffer device
+[    9.657975] systemd[1]: Load Kernel Module drm skipped, unmet condition check ConditionKernelModuleLoaded=!drm
+[   11.526180] mei_hdcp 0000:00:16.0-b638ab7e-94e2-4ea2-a552-d1c54b627f04: bound 0000:00:02.0 (ops i915_hdcp_ops [i915])
+[   11.588812] mei_pxp 0000:00:16.0-fbf6fcf1-96cf-4e2e-a6a6-1bab8cbe36b1: bound 0000:00:02.0 (ops i915_pxp_tee_component_ops [i915])
+[   13.167044] sof-audio-pci-intel-tgl 0000:00:1f.3: bound 0000:00:02.0 (ops intel_audio_component_bind_ops [i915])

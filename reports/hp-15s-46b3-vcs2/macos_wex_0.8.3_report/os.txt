@@ -1,0 +1,7 @@
+ProductName:		macOS
+ProductVersion:		15.8.2
+BuildVersion:		24H232
+cpu: 12th Gen Intel(R) Core(TM) i3-1215U
+model: MacBookPro16,2
+ram_bytes: 8589934592
+Darwin Kernel Version 24.6.0: Sun Oct 11 23:36:58 PDT 2026; root:xnu-11417.140.69.713.47~2/RELEASE_X86_64

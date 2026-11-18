@@ -1,0 +1,56 @@
+### /sys/kernel/debug/dri/0000:00:02.0/i915_sseu_status
+SSEU Device Info
+  Available Slice Mask: 0001
+  Available Slice Total: 1
+  Available Subslice Total: 4
+  Available Slice0 subslices: 4
+  Available EU Total: 64
+  Available EU Per Subslice: 16
+  Has Pooled EU: no
+  Has Slice Power Gating: yes
+  Has Subslice Power Gating: no
+  Has EU Power Gating: no
+SSEU Device Status
+  Enabled Slice Mask: 0001
+  Enabled Slice Total: 1
+  Enabled Subslice Total: 4
+  Enabled Slice0 subslices: 4
+  Enabled EU Total: 4
+  Enabled EU Per Subslice: 2
+### /sys/kernel/debug/dri/128/i915_sseu_status
+SSEU Device Info
+  Available Slice Mask: 0001
+  Available Slice Total: 1
+  Available Subslice Total: 4
+  Available Slice0 subslices: 4
+  Available EU Total: 64
+  Available EU Per Subslice: 16
+  Has Pooled EU: no
+  Has Slice Power Gating: yes
+  Has Subslice Power Gating: no
+  Has EU Power Gating: no
+SSEU Device Status
+  Enabled Slice Mask: 0000
+  Enabled Slice Total: 0
+  Enabled Subslice Total: 0
+  Enabled EU Total: 0
+  Enabled EU Per Subslice: 0
+### /sys/kernel/debug/dri/1/i915_sseu_status
+SSEU Device Info
+  Available Slice Mask: 0001
+  Available Slice Total: 1
+  Available Subslice Total: 4
+  Available Slice0 subslices: 4
+  Available EU Total: 64
+  Available EU Per Subslice: 16
+  Has Pooled EU: no
+  Has Slice Power Gating: yes
+  Has Subslice Power Gating: no
+  Has EU Power Gating: no
+SSEU Device Status
+  Enabled Slice Mask: 0000
+  Enabled Slice Total: 0
+  Enabled Subslice Total: 0
+  Enabled EU Total: 0
+  Enabled EU Per Subslice: 0
+No readable node; debugfs was not mounted by this script.

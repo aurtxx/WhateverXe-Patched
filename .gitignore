@@ -1,2 +1,8 @@
 *.zip
 *.kext
+
+# Safety: never commit raw OpenCore configs or private SMBIOS/EFI backups
+config.plist
+config.plist.*
+*.efi
+EFI/

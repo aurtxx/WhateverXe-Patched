@@ -1,0 +1,45 @@
+﻿== System ==
+  ProductName:		macOS
+  ProductVersion:		15.8.2
+  BuildVersion:		24H232
+  CPU: 12th Gen Intel(R) Core(TM) i3-1215U
+
+== GPU ==
+  GPU device ID: 0x46B3
+  Revision: 0x0C
+
+== Boot arguments ==
+  boot-args: -v debug=0x100 keepsyms=1 -disablegfxfirmware -igfxdvmt revcpu=1 -allow3d
+  [ OK ] -allow3d present
+  [ OK ] -disablegfxfirmware present
+
+== Kexts ==
+  [ OK ] Lilu loaded
+  [ OK ] WhateverXe loaded
+  [ OK ] AppleIntelTGLCompat loaded
+  [ OK ] AMFIPass loaded
+  [ OK ] Apple TGL framebuffer kext loaded
+  [ OK ] Graphics package receipts: org.b00t0x.WhateverXe.Sequoia org.b00t0x.WhateverXe.Common
+
+== Plugin gate (IGPU) ==
+  [ OK ] N97Admission = Yes
+  [FAIL] N97GTTopologyReady = No
+         -> See troubleshooting in the README; send this output with your report
+  [FAIL] N97NativePreflight = No
+         -> See troubleshooting in the README; send this output with your report
+  [FAIL] N97NativeStartAllowed = No
+         -> See troubleshooting in the README; send this output with your report
+  [ OK ] WEXDisplay13BootReady = Yes
+  [WARN] No N97NativeBlockReason property
+         -> Older kext, or built without the optional diagnostic
+  boot-display check status: 1 (Ready) [numbering of 0.6.1; 1 = Ready]
+  Firmware DVMT pre-allocation: 60 MB (GMS field 0xFE)
+  [ OK ] framebuffer-stolenmem property present
+  [ OK ] -igfxdvmt present
+
+== Metal and brightness ==
+  [FAIL] Metal not reported
+         -> The native driver did not start; see the gate checks above
+  [ OK ] PNLF _UID = 19
+
+Summary: 13 OK, 1 warnings, 4 failures.

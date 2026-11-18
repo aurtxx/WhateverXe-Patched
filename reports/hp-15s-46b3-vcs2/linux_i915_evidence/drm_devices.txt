@@ -1,0 +1,16 @@
+### /sys/class/drm/card1
+/sys/bus/pci/drivers/i915
+0x8086
+0x46b3
+### /sys/class/drm/card1-DP-1
+/sys/devices/pci0000:00/0000:00:02.0/drm/card1/driver
+### /sys/class/drm/card1-DP-2
+/sys/devices/pci0000:00/0000:00:02.0/drm/card1/driver
+### /sys/class/drm/card1-DP-3
+/sys/devices/pci0000:00/0000:00:02.0/drm/card1/driver
+### /sys/class/drm/card1-DP-4
+/sys/devices/pci0000:00/0000:00:02.0/drm/card1/driver
+### /sys/class/drm/card1-eDP-1
+/sys/devices/pci0000:00/0000:00:02.0/drm/card1/driver
+### /sys/class/drm/card1-HDMI-A-1
+/sys/devices/pci0000:00/0000:00:02.0/drm/card1/driver

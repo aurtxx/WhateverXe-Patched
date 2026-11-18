@@ -1,0 +1,2 @@
+org.b00t0x.WhateverXe.Sequoia
+org.b00t0x.WhateverXe.Common

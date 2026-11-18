@@ -1,0 +1,6 @@
+vendor=0x8086
+device=0x46b3
+revision=0x0c
+subsystem_vendor=0x103c
+subsystem_device=0x8a20
+class=0x030000

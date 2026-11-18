@@ -1,0 +1,29 @@
++-o PNLF  <class IOACPIPlatformDevice, id 0x100000248, registered, matched, active, busy 0 (107 ms), retain 8>
+  | {
+  |   "compatible" = <"backlight">
+  |   "AppleBacklightAtBoot" = 70781
+  |   "AppleMaxBrightness" = 65403
+  |   "_UID" = "19"
+  |   "ApplePanelRawBrightness" = 65403
+  |   "_STA" = 11
+  |   "name" = <"APP0002">
+  | }
+  | 
+  +-o AppleIntelPanelA  <class AppleIntelPanelA, id 0x100000565, registered, matched, active, busy 0 (24 ms), retain 6>
+      {
+        "IOClass" = "AppleIntelPanelA"
+        "CFBundleIdentifier" = "com.apple.driver.AppleBacklight"
+        "IOProviderClass" = "IOACPIPlatformDevice"
+        "IODisplayParameters" = {"commit"={"reg"=0}}
+        "ApplePanel" = {"F19T07d0"=<00110000028f0353045a05a107ae0a3d0e1413741a5e241831a944595e768311b6c7ff7b>}
+        "IOProbeScore" = 2000
+        "IONameMatch" = "backlight"
+        "IOMatchCategory" = "IODisplayParameters"
+        "WhateverXeBacklightMatch" = <01000000010000000100000000000000ffff000001000000>
+        "IONameMatched" = "backlight"
+        "IOPersonalityPublisher" = "com.apple.driver.AppleBacklight"
+        "CFBundleIdentifierKernel" = "com.apple.driver.AppleBacklight"
+        "WhateverXeBacklightProfile" = "F19T07d0"
+      }
+      
+

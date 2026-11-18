@@ -1,0 +1,8 @@
+   57   14 0xffffff8004013000 0x30000    0x30000    as.vit9696.Lilu (1.7.3) DE0954C9-43B2-34AB-9873-CD5937F497F6 <9 7 6 3 2 1>
+   58    0 0xffffff8004043000 0xcf000    0xcf000    com.dhinakg.AMFIPass (1.4.1) 7DF1CDFC-7EFE-3D82-A3A2-7DACE8B1D097 <57 9 8 7 6 3 2 1>
+   59    0 0xffffff8004112000 0x912000   0x912000   org.b00t0x.WhateverXe (0.8.3) 69048CDD-BF63-3E74-B3F2-4A195EC103F7 <57 18 9 7 6 3 2 1>
+  145    2 0xffffff7f95afb000 0x69ffc    0x69ffc    com.apple.iokit.IOAcceleratorFamily2 (485.2) 97A7305C-FB14-39FC-BC20-ED834ABCEB2D <138 105 49 27 18 9 8 7 6 3 1>
+  146    2 0xffffff7f97116000 0x24b4     0x24b4     org.b00t0x.AppleIntelTGLCompat (0.8.1) FF6D035A-A77A-30B9-A30D-0193B1018C94 <18 9 7 6 3 2 1>
+  147    0 0xffffff7f97266000 0xc8000    0xc8000    com.apple.driver.AppleIntelTGLGraphicsFramebuffer (16.0.0) B6078743-F795-3202-A55E-EA690FA40949 <146 145 143 138 49 18 17 9 8 7 6 3 1>
+  150    0 0xffffff7f957da000 0xfff      0xfff      com.apple.driver.AppleIntelSlowAdaptiveClocking (4.0.0) F4637EA3-77A0-34B8-A12C-1DDF41B05118 <149 6 3>
+  162    0 0xffffff7f9711a000 0xc7ff9    0xc7ff9    com.apple.driver.AppleIntelTGLGraphics (16.0.0) BA3AA1C0-FE6B-33B3-9D85-73F848394E3D <146 145 138 105 18 9 8 7 6 3 1>

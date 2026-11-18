@@ -1,0 +1,22 @@
+Graphics/Displays:
+
+    Intel UHD Graphics (Alder Lake-U):
+
+      Chipset Model: Intel UHD Graphics (Alder Lake-U)
+      Type: GPU
+      Bus: Built-In
+      VRAM (Dynamic, Max): 1536 MB
+      Vendor: Intel
+      Device ID: 0x46b3
+      Revision ID: 0x000c
+      Displays:
+        Display:
+          Resolution: 1920 x 1080 (1080p FHD - Full High Definition)
+          UI Looks like: 1920 x 1080
+          Framebuffer Depth: 24-Bit Color (ARGB8888)
+          Main Display: Yes
+          Mirror: Off
+          Online: Yes
+          Automatically Adjust Brightness: No
+          Connection Type: Internal
+

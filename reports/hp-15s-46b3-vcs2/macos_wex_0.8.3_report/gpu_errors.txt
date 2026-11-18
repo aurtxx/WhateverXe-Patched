@@ -1,0 +1,9 @@
+2026-11-18 20:54:03.146204+0530 0x398      Default     0x0                  0      0    kernel: (watchdog) watchdog configured (source: platform configuration) to monitor userspace, SoC watchdog disabled, panic SoC watchdog disabled, halt on SoC watchdog expir
+2026-11-18 20:54:18.290163+0530 0x735      Default     0x0                  0      0    kernel: (AppleIntelTGLGraphicsFramebuffer) [IGFB][ERROR][DISPLAY  ] EFI using a different backlight frequency
+2026-11-18 20:54:18.308561+0530 0x77c      Default     0x0                  0      0    kernel: Found class: IOExtensiblePaniclog
+2026-11-18 20:54:18.308563+0530 0x777      Default     0x0                  0      0    kernel: Found class: IOExtensiblePaniclog
+2026-11-18 20:54:27.324050+0530 0x36d      Default     0x0                  0      0    kernel: (AppleIntelTGLGraphicsFramebuffer) [IGFB][WARN ][BRINGUP  ] Disable panic on underrun (set variable to true) after target bringup is succcessfull
+2026-11-18 20:54:27.426760+0530 0x36d      Default     0x0                  0      0    kernel: (AppleIntelTGLGraphicsFramebuffer) [IGFB][WARN ][BRINGUP  ] Disable panic on underrun (set variable to true) after target bringup is succcessfull
+2026-11-18 20:54:27.467649+0530 0x36d      Default     0x0                  0      0    kernel: (AppleIntelTGLGraphicsFramebuffer) [IGFB][WARN ][BRINGUP  ] Disable panic on underrun (set variable to true) after target bringup is succcessfull
+2026-11-18 20:54:27.699159+0530 0x36d      Default     0x0                  0      0    kernel: (AppleIntelTGLGraphicsFramebuffer) [IGFB][WARN ][BRINGUP  ] Disable panic on underrun (set variable to true) after target bringup is succcessfull
+2026-11-18 20:54:37.811276+0530 0xa47      Default     0x0                  0      0    kernel: Found class: IOExtensiblePaniclog
