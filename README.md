@@ -41,7 +41,11 @@ graphics driver on 12th/13th-gen Xe-LP (Display 13) laptop iGPUs. It has been ve
 ---
 
 ## Table of contents
-
+> [!IMPORTANT]
+> Original Compatibility Patches — Now Implemented Upstream
+> **Go to Upstream Official Project -**
+> - [WhateverXe](https://github.com/b00t0x/WhateverXe)
+> - [WhateverXe Graphics](https://github.com/b00t0x/WhateverXe-Graphics)
 0. [Important warnings](#important-warnings)
 1. [What this fork changes](#what-this-fork-changes)
 2. [Tested configuration](#tested-configuration)
