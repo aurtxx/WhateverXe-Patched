@@ -14,7 +14,7 @@
 >
 > The internal 6-bpc eDP panel initialized successfully, and Metal acceleration was available.
 >
-> This repository will remain available as a historical record of the original compatibility work, along with its diagnostic tools and scripts. Hardware compatibility beyond my tested configuration should be checked against the official project's compatibility information.
+> This repository will remain available as a record of the original compatibility work, along with its diagnostic tools and scripts. Hardware compatibility beyond my tested configuration should be checked against the official project's compatibility information.
 >
 > **Official projects:**
 > - [WhateverXe](https://github.com/b00t0x/WhateverXe)
