@@ -1,5 +1,25 @@
 # Patched WhateverXe for 12th/13th-gen Intel Xe-LP iGPUs (Alder Lake / Raptor Lake laptops) — unofficial patch set
 
+> [!IMPORTANT]
+> **The 6-bpc internal eDP compatibility work developed in this project is now implemented in the official upstream [WhateverXe](https://github.com/b00t0x/WhateverXe) project!**
+>
+> **For new installations, please use the official upstream releases instead of this patched version.**
+>
+> I have personally tested the official combination of **WhateverXe 0.8.3 + WhateverXe Graphics 0.4.4**, without applying any patches from this repository.
+>
+> **My tested configuration:**
+> - CPU: Intel Core i3-1215U
+> - iGPU Device ID: `0x46B3`
+> - macOS: Sonoma 14.8.9
+>
+> The internal 6-bpc eDP panel initialized successfully, and Metal acceleration was available.
+>
+> This repository will remain available as a historical record of the original compatibility work, along with its diagnostic tools and scripts. Hardware compatibility beyond my tested configuration should be checked against the official project's compatibility information.
+>
+> **Official projects:**
+> - [WhateverXe](https://github.com/b00t0x/WhateverXe)
+> - [WhateverXe Graphics](https://github.com/b00t0x/WhateverXe-Graphics)
+
 > **Status: experimental pre-release, tested on one machine.**
 > Metal works on the tested laptop, but there are known issues (see [Known issues](#known-issues-and-untested-features)).
 > Keep a working backup of your EFI folder before trying anything here.
