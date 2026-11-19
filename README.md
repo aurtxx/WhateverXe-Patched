@@ -16,7 +16,20 @@ Clean, privacy-sanitized **hardware, software, macOS (`WhateverXe 0.8.3` + `Grap
 | Native Framebuffer | **WORKING** | `N97FramebufferStartAccepted = Yes`, `1920x1080 Internal`, `1536 MB` |
 | Panel Brightness Control | **WORKING** | `PNLF _UID = 19` (`\_SB.PC00.GFX0`), `WhateverXeBacklightProfile = "F19T07d0"` |
 | Kexts, DVMT & Boot Args | **13 / 13 OK** | `Lilu 1.7.3`, `AMFIPass 1.4.1 Mod`, `WhateverXe 0.8.3`, `TGLCompat 0.8.1`, `60 MB` DVMT (`GMS 0xFE`) |
-| Metal / Native Accelerator | **BLOCKED** | `N97GTTopologyReady = No` — silicon has **VCS2-only (`video = 4`, VCS0 fused off)** |
+| Metal / Native Accelerator | **WORKING (Metal 2/3)** | `IntelAccelerator` active, `N97GTTopologyReady = Yes`, `N97NativeStartAllowed = Yes` via VCS2 admission (`-wex-adlp-allow-vcs2`) + HP PAVP fix |
+
+---
+
+## Breakthrough: Metal 2/3 Acceleration Achieved!
+
+On 2026-11-19, full hardware Metal acceleration was achieved on this HP 15s-fr5009TU (`8086:46B3` rev `0x0C`)!
+
+### The Working Solution:
+1. **Base Engine**: Official **WhateverXe `0.8.3` RELEASE** + **WhateverXe Graphics `0.4.4`** (retains 6-bpc internal eDP display handoff and working backlight).
+2. **VCS2 Admission**: Incorporated `@TrDiTu`'s VCS2-only topology admission logic (`-wex-adlp-allow-vcs2` admitting `fuses[4] = 0x000E00FB`, `video = 4`).
+3. **HP BIOS PAVP Panic Fix**: Patched `PAVPCommandCallback` to take the "PAVP disabled" path, preventing the HP BIOS `NULL+0xB8` crash in `startGraphicsEngine()`.
+4. **VCS2 Media Engine Routing**: Remapped media context params to VCS2 (`0x1D0000`, type 4, inst 2) and routed `wexVCSIRQ`.
+5. **Source Code & CI Build**: Published at [`aurtxx/WhateverXe` (branch `vcs2-hp-pavp`)](https://github.com/aurtxx/WhateverXe/tree/vcs2-hp-pavp).
 
 ---
 
