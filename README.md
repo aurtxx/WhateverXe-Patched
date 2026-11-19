@@ -44,10 +44,41 @@ On 2026-11-19, full hardware Metal acceleration was achieved on this HP 15s-fr50
 
 ---
 
+## Full Hardware Audit & Diagnostics (2026-11-19)
+
+A comprehensive 153-line audit was completed on the target machine running macOS Sequoia 15.8.2:
+* **Full Audit Document**: [`docs/HARDWARE_DIAGNOSTIC_REPORT.md`](./docs/HARDWARE_DIAGNOSTIC_REPORT.md)
+* **Official Verification Evidence Pack**: Attached to [GitHub Release `v1.1-metal-hardware-audit`](https://github.com/aurtxx/WhateverXe-Patched/releases/tag/v1.1-metal-hardware-audit) (`WEX_HARDWARE_EVIDENCE_PACK_20261119.zip`, 14 sanitized proof files including full IORegistry dumps, system profiler reports, and crash logs).
+
+### Resolved Flaws:
+* **USB 3.2 Gen 1 Type-C Subsystem**: Previously, OpenCore used generic `UTBDefault.kext` which hit Apple's 15-port discovery ceiling (12 ports wasted on USB 2.0, truncating USB 3.0 Type-C). Resolved by generating a machine-exact **`UTBMap.kext`** mapping exactly 9 physical ports:
+  - `HS01` / `SS01`: Left USB 3.2 Type-A (Connector Type 3)
+  - `HS02` / `SS02`: Right USB 3.2 Type-A (Connector Type 3)
+  - `HS03`: Internal HP TrueVision HD Camera (Connector Type 255)
+  - `HS04` / `SS03` / `SS04`: USB 3.2 Gen 1 Type-C (Connector Type 9 - Type-C with internal switch)
+  - `HS10`: Internal Realtek Bluetooth 5.0 (Connector Type 255)
+
+### Active Remaining Bottlenecks:
+1. **1536 MB VRAM Ceiling**: While OpenCore specifies `framebuffer-unifiedmem = 000000A0` (2.5 GB), macOS reports 1536 MB. WhateverXe 0.8.3 only implements `framebuffer-stolenmem` for TGL; it does not patch the unified memory tables or override dynamic VRAM calculation in `AppleIntelFramebufferController`. A dedicated TGL unifiedmem hook is needed.
+2. **AppleGVA Media Decode (VCS2 vs VCS0)**: The die is binned as VCS2-only (`video = 4`, physical VCS0 fused off). WhateverXe maps media context to `0x1D0000`, but Apple's proprietary `AppleGVA.framework` / VideoToolbox submits jobs targeting VCS0, causing playback hitches in hardware-accelerated players. Software decoding (VLC / CPU AVX2) works smoothly.
+3. **HP BIOS PAVP Hardware DRM Lock**: HP firmware locks PAVP registers in MMIO `0x1082C0`. WhateverXe forces `WEXPAVPDisabledPath` to eliminate the `NULL + 0xB8` panic in `startGraphicsEngine()`, which allows Metal to boot but leaves hardware DRM (FairPlay / Apple TV 4K) disabled.
+
+---
+
+## Community Acknowledgments
+
+* **[@Chicken_Nugget_725 (Reddit)](https://www.reddit.com/user/Chicken_Nugget_725/)**: The very first person who helped boot macOS on this HP 15s-fr5009TU hardware!
+* **[@b00t0x](https://github.com/b00t0x)**: For the upstream WhateverXe 0.8.3 display handoff and backlight engine.
+* **[@TrDiTu](https://github.com/TrDiTu)**: For the VCS2 topology admission and HP PAVP crash bypass logic.
+* **[@belugaa-01](https://github.com/belugaa-01)**: For the original 6-bpc research and diagnostic scripts.
+
+---
+
 ## Direct Navigation
 
 | Section | Path | Contents |
 |---|---|---|
+| **Hardware Diagnostic Report** | [`docs/HARDWARE_DIAGNOSTIC_REPORT.md`](./docs/HARDWARE_DIAGNOSTIC_REPORT.md) | 2026-11-19 audit: full inventory, crash analysis, flaws & bottlenecks |
 | **Hardware Profile** | [`docs/HARDWARE_PROFILE.md`](./docs/HARDWARE_PROFILE.md) | Full laptop, CPU, iGPU PCI/BAR/GGC, Display, Audio, NVMe & Linux `i915` breakdown |
 | **Software & Sanitized EFI** | [`docs/SOFTWARE_AND_EFI.md`](./docs/SOFTWARE_AND_EFI.md) | macOS `15.8.2`, OpenCore `1.0.9`, exact kext load order, `boot-args`, `DeviceProperties`, `SSDT-PNLF` |
 | **Diagnostic Timeline** | [`docs/DIAGNOSTIC_TIMELINE.md`](./docs/DIAGNOSTIC_TIMELINE.md) | Chronological summary of testing from `0.8.0` → `0.8.2` trace → clean `0.8.3 + 0.4.4` |
